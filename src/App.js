@@ -1,7 +1,7 @@
 import React from 'react';
-import DensityMap from './DensityMap.js';
+import DensityMap from './DensityMap';
 import './App.css';
-const sampleData = require('./sampleData');
+const { sampleData } = require('./sampleData');
 
 export default class App extends React.Component {
   render() {
