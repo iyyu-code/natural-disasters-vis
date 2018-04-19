@@ -1,0 +1,11 @@
+{
+  "styles": {
+    "light": "mapbox://styles/mapbox/light-v9",
+    "dark": "mapbox://styles/mapbox/dark-v9",
+    "basic": "mapbox://styles/mapbox/basic-v9",
+    "outdoor": "mapbox://styles/mapbox/outdoors-v10"
+  },
+  "center": [-106.402786, 42.353889],
+  "containerStyle": { "height": "70vh", "width": "90vw", "position": "relative" },
+  "zoom": [2.6]
+}

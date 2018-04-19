@@ -1,0 +1,70 @@
+{
+  "Ten": {
+    "fill-color": {
+      "property": "density",
+      "stops": [
+        [0, "#EEEEED"],
+        [1, "#70F1FF"],
+        [2, "#56D7FF"],
+        [3, "#3DBEFF"],
+        [5, "#23A4FF"],
+        [6, "#0A8BE6"],
+        [8, "#0071CC"],
+        [9, "#0058B3"],
+        [10, "#003E99"]
+      ]
+    },
+    "fill-opacity": 0.75
+  },
+  "Hundred": {
+    "fill-color": {
+      "property": "density",
+      "stops": [
+        [0, "#EEEEED"],
+        [1, "#70F1FF"],
+        [2, "#56D7FF"],
+        [5, "#3DBEFF"],
+        [10, "#23A4FF"],
+        [20, "#0A8BE6"],
+        [50, "#0071CC"],
+        [70, "#0058B3"],
+        [100, "#003E99"]
+      ]
+    },
+    "fill-opacity": 0.75
+  },
+  "Thousand": {
+    "fill-color": {
+      "property": "density",
+      "stops": [
+        [0, "#EEEEED"],
+        [1, "#70F1FF"],
+        [10, "#56D7FF"],
+        [20, "#3DBEFF"],
+        [50, "#23A4FF"],
+        [100, "#0A8BE6"],
+        [200, "#0071CC"],
+        [500, "#0058B3"],
+        [1000, "#003E99"]
+      ]
+    },
+    "fill-opacity": 0.75
+  },
+  "FourThousand": {
+    "fill-color": {
+      "property": "density",
+      "stops": [
+        [0, "#EEEEED"],
+        [50, "#70F1FF"],
+        [100, "#56D7FF"],
+        [500, "#3DBEFF"],
+        [1000, "#23A4FF"],
+        [1500, "#0A8BE6"],
+        [2000, "#0071CC"],
+        [3000, "#0058B3"],
+        [4000, "#003E99"]
+      ]
+    },
+    "fill-opacity": 0.75
+  }
+}
