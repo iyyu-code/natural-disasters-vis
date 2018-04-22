@@ -1,4 +1,4 @@
-export const sampleData = [
+const sampleData = [
   {
     state: 'CA',
     hash: 'aec2c6d69676fd0b238d60bb1990a35c',
@@ -200,3 +200,7 @@ export const sampleData = [
     paProgramDeclared: true
   }
 ];
+
+module.exports = {
+  sampleData
+};
