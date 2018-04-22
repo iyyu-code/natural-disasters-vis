@@ -5,7 +5,7 @@
     "basic": "mapbox://styles/mapbox/basic-v9",
     "outdoor": "mapbox://styles/mapbox/outdoors-v10"
   },
-  "center": [-106.402786, 42.353889],
+  "center": [-106.402786, 40.4567],
   "containerStyle": { "height": "70vh", "width": "90vw", "position": "relative" },
-  "zoom": [2.6]
+  "zoom": [2.7]
 }

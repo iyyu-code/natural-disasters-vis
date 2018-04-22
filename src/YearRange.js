@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import debounce from './debounce';
 const Range = Slider.createSliderWithTooltip(Slider.Range);
 
 const YearRange = props => {
@@ -22,7 +23,7 @@ const YearRange = props => {
         defaultValue={[1953, 2018]}
         marks={marks}
         tipFormatter={value => value}
-        onChange={props.handleYearChange}
+        onChange={debounce(props.handleYearChange, 1000)}
       />
     </div>
   );

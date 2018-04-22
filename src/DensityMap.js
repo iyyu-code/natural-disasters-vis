@@ -15,45 +15,41 @@ export default class DensityMap extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({filtered: this.determineDensity()})
-    this.setState({paintProp :this.determineDensityStops()});
+  componentWillReceiveProps(nextProps) {
+    this.determineDensity(nextProps.disasterData);
+    this.determineDensityStops(nextProps.disasterData.length);
   }
 
-  determineDensity() {
-    let dataCount = {};
-    for (let i = 0; i < this.props.disasterData.length; i+=1) {
-      let state = this.props.disasterData[i].state;
-      dataCount[state] = (dataCount[state] || 0) + 1;
-    }
-    let mapped = [];
+  determineDensity(data) {
+    const dataCount = data.reduce((all, each, index) => {
+      all[each.state] = (all[each.state] || 0) + 1;
+      return all;
+    }, {});
+    let features = [];
     for (let state in dataCount) {
       if (stateCodeGeoJSON[state]) {
       let feature = stateCodeGeoJSON[state];
         feature.properties.density = dataCount[state];
-        mapped.push(feature);
+        features.push(feature);
       }
     }
-    return mapped;
+    this.setState({ filtered: features });
   }
   
-  determineDensityStops() {
-    const count = this.props.disasterData.length;
-    if (count <= 50) {
-      return paintProps["Ten"];
+  determineDensityStops(disasterCount) {
+    if (disasterCount <= 50) {
+      this.setState({ paintProp: paintProps['Ten'] });
+    } else if (disasterCount <=500) {
+      this.setState({ paintProp: paintProps['Hundred'] });
+    } else if (disasterCount <=1000) {
+      this.setState({ paintProp: paintProps['Thousand'] });
+    } else {
+      this.setState({ paintProp: paintProps['FourThousand'] });
     }
-    if (count <=500) {
-      return paintProps["Hundred"];
-    }
-    if (count <=1000) {
-      return paintProps["Thousand"];
-    }
-    return paintProps["FourThousand"];
   }
 
   render() {
     return <div className="Map">
-        {}
         <Map style={styles.light} containerStyle={containerStyle} center={center} zoom={zoom}>
         <GeoJSONLayer data={{
         "type": "FeatureCollection",
