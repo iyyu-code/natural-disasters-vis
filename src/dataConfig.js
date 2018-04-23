@@ -3,6 +3,7 @@ const initialConfig = {
   method: 'POST',
   contentType: 'application/json',
   data: JSON.stringify({
+<<<<<<< HEAD
     type: 'select',
     args: {
       table: 'disaster_declaration_summaries',
@@ -23,6 +24,12 @@ const initialConfig = {
           $in: ['2018']
         }
       }
+=======
+    type: 'count',
+    args: {
+      table: 'disaster_declaration_summaries',
+      where: {}
+>>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
     }
   })
 };
@@ -40,6 +47,7 @@ const interactiveQuery = {
     table: 'disaster_declaration_summaries',
     columns: [
       'state',
+<<<<<<< HEAD
       'declarationDate',
       'fyDeclared',
       'disasterType',
@@ -53,6 +61,16 @@ const interactiveQuery = {
     where: {
       fyDeclared: {
         $in: ['2013', '2016']
+=======
+      'fyDeclared',
+      'incidentType',
+      'title',
+      'hash'
+    ],
+    where: {
+      fyDeclared: {
+        $in: ['2018', '2018']
+>>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
       }
     }
   }

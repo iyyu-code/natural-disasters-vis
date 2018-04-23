@@ -16,14 +16,18 @@ const YearRange = props => {
     2018: 2018
   };
   return (
-    <div className="Range">
+    <div className="range">
       <Range
         min={1950}
         max={2018}
-        defaultValue={[1953, 2018]}
+        defaultValue={[2018, 2018]}
         marks={marks}
         tipFormatter={value => value}
+<<<<<<< HEAD
         onChange={debounce(props.handleYearChange, 1000)}
+=======
+        onChange={debounce(props.handleYearChange, 200)}
+>>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
       />
     </div>
   );
