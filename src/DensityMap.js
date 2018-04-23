@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMapboxGl, { GeoJSONLayer } from 'react-mapbox-gl';
 const { center, styles, containerStyle, zoom } = require('./mapStyle.json');
 const stateCodeGeoJSON = require('./stateCodeGeoJSON.json');
@@ -11,22 +12,16 @@ export default class DensityMap extends React.PureComponent {
 
     this.state = {
       disasterData: [],
+      highestCount: 0,
       shouldUseSampleData: false
     };
   }
 
-<<<<<<< HEAD
-  componentWillReceiveProps(nextProps) {
-    this.determineDensity(nextProps.disasterData);
-    this.determineDensityStops(nextProps.disasterData.length);
-  }
-
-  determineDensity(data) {
-    const dataCount = data.reduce((all, each, index) => {
-      all[each.state] = (all[each.state] || 0) + 1;
-=======
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { disasterData: nextProps.disasterData, shouldUseSampleData: nextProps.shouldUseSampleData };
+    return {
+      disasterData: nextProps.disasterData,
+      shouldUseSampleData: nextProps.shouldUseSampleData
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -41,8 +36,7 @@ export default class DensityMap extends React.PureComponent {
       all[each.state] = (all[each.state] || 0) + 1;
       if (all[each.state] > highest) {
         highest = all[each.state];
-      } 
->>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
+      }
       return all;
     }, {});
     let features = [];
@@ -53,22 +47,8 @@ export default class DensityMap extends React.PureComponent {
         features.push(feature);
       }
     }
-<<<<<<< HEAD
-    this.setState({ filtered: features });
-  }
-  
-  determineDensityStops(disasterCount) {
-    if (disasterCount <= 50) {
-      this.setState({ paintProp: paintProps['Ten'] });
-    } else if (disasterCount <=500) {
-      this.setState({ paintProp: paintProps['Hundred'] });
-    } else if (disasterCount <=1000) {
-      this.setState({ paintProp: paintProps['Thousand'] });
-    } else {
-      this.setState({ paintProp: paintProps['FourThousand'] });
-=======
-    this.setState({highestCount : highest});
-    this.setState({disasterData : features});
+    this.setState({ highestCount: highest });
+    this.setState({ disasterData: features });
   }
 
   determineDensityStops(highestdisasterCount) {
@@ -86,18 +66,10 @@ export default class DensityMap extends React.PureComponent {
       }
     } else {
       return paintProps['Hundred'];
->>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
     }
   }
 
   render() {
-<<<<<<< HEAD
-    return <div className="Map">
-        <Map style={styles.light} containerStyle={containerStyle} center={center} zoom={zoom}>
-        <GeoJSONLayer data={{
-        "type": "FeatureCollection",
-        "features": this.state.filtered}} fillPaint={this.state.paintProp} />
-=======
     return (
       <div className="Map">
         <Map
@@ -113,9 +85,14 @@ export default class DensityMap extends React.PureComponent {
             }}
             fillPaint={this.determineDensityStops(this.state.highestCount)}
           />
->>>>>>> 74ccf61efc330fe6652dd0c1e8ea3ab76c00ae38
         </Map>
       </div>
     );
   }
 }
+
+DensityMap.propTypes = {
+  disasterData: PropTypes.array,
+  highestCount: PropTypes.number,
+  shouldUseSampleData: PropTypes.bool
+};
