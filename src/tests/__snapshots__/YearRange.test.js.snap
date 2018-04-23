@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="range"
+>
+  <div
+    className="rc-slider rc-slider-with-marks"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <div
+      className="rc-slider-rail"
+      style={Object {}}
+    />
+    <div
+      className="rc-slider-track rc-slider-track-1"
+      style={
+        Object {
+          "left": "100%",
+          "width": "0%",
+        }
+      }
+    />
+    <div
+      className="rc-slider-step"
+    >
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "0%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "14.705882352941178%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "29.411764705882355%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "44.11764705882353%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "58.82352941176471%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "73.52941176470588%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot"
+        style={
+          Object {
+            "left": "88.23529411764706%",
+          }
+        }
+      />
+      <span
+        className="rc-slider-dot rc-slider-dot-active"
+        style={
+          Object {
+            "left": "100%",
+          }
+        }
+      />
+    </div>
+    <div
+      aria-disabled={false}
+      aria-valuemax={2018}
+      aria-valuemin={1950}
+      aria-valuenow={2018}
+      className="rc-slider-handle rc-slider-handle-1"
+      onBlur={undefined}
+      onClick={undefined}
+      onContextMenu={undefined}
+      onFocus={undefined}
+      onMouseDown={undefined}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onTouchStart={undefined}
+      role="slider"
+      style={
+        Object {
+          "left": "100%",
+        }
+      }
+      tabIndex={0}
+    />
+    <div
+      aria-disabled={false}
+      aria-valuemax={2018}
+      aria-valuemin={1950}
+      aria-valuenow={2018}
+      className="rc-slider-handle rc-slider-handle-2"
+      onBlur={undefined}
+      onClick={undefined}
+      onContextMenu={undefined}
+      onFocus={undefined}
+      onMouseDown={undefined}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onTouchStart={undefined}
+      role="slider"
+      style={
+        Object {
+          "left": "100%",
+        }
+      }
+      tabIndex={0}
+    />
+    <div
+      className="rc-slider-mark"
+    >
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "0%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        1950
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "14.705882352941178%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        1960
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "29.411764705882355%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        1970
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "44.11764705882353%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        1980
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "58.82352941176471%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        1990
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "73.52941176470588%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        2000
+      </span>
+      <span
+        className="rc-slider-mark-text"
+        style={
+          Object {
+            "left": "88.23529411764706%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        2010
+      </span>
+      <span
+        className="rc-slider-mark-text rc-slider-mark-text-active"
+        style={
+          Object {
+            "left": "100%",
+            "marginLeft": "-6.428571428571429%",
+            "width": "12.857142857142858%",
+          }
+        }
+      >
+        2018
+      </span>
+    </div>
+  </div>
+</div>
+`;
