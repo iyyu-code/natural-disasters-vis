@@ -3,26 +3,10 @@ const initialConfig = {
   method: 'POST',
   contentType: 'application/json',
   data: JSON.stringify({
-    type: 'select',
+    type: 'count',
     args: {
       table: 'disaster_declaration_summaries',
-      columns: [
-        'state',
-        'declarationDate',
-        'fyDeclared',
-        'disasterType',
-        'incidentType',
-        'title',
-        'declaredCountyArea',
-        'hash',
-        'incidentEndDate',
-        'incidentBeginDate'
-      ],
-      where: {
-        fyDeclared: {
-          $in: ['2018']
-        }
-      }
+      where: {}
     }
   })
 };
@@ -40,19 +24,14 @@ const interactiveQuery = {
     table: 'disaster_declaration_summaries',
     columns: [
       'state',
-      'declarationDate',
       'fyDeclared',
-      'disasterType',
       'incidentType',
       'title',
-      'declaredCountyArea',
-      'hash',
-      'incidentEndDate',
-      'incidentBeginDate'
+      'hash'
     ],
     where: {
       fyDeclared: {
-        $in: ['2013', '2016']
+        $in: ['2018', '2018']
       }
     }
   }

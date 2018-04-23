@@ -9,3 +9,16 @@
   padding: 20px;
   color: white;
 }
+
+.range {
+  top: 29px;
+  padding: 10px;
+  width: 45%;
+  position: relative;
+}
+
+.disaster-dropdown {
+  float: right;
+  width: 50%;
+  margin-left: 10px;
+}

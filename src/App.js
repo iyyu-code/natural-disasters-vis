@@ -1,18 +1,30 @@
 import React from 'react';
 import MapContainer from './MapContainer';
 import YearRange from './YearRange';
-import './App.css';
+import DropdownContainer from './DropdownContainer';
 import { interactiveQuery } from './dataConfig';
+import './App.css';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      interactiveQuery: null
+      interactiveQuery: null,
+      disasterSelections: [''],
+      years: ["2018"]
     }
 
+    this.filterDisaster = this.filterDisaster.bind(this);
     this.handleYearChange = this.handleYearChange.bind(this);
+  }
+
+  filterDisaster(disasterSelections) {
+    interactiveQuery.args.where.incidentType = {
+        "$in": disasterSelections
+    };
+    this.setState({ disasterSelections });
+      this.setState({ interactiveQuery: interactiveQuery });
   }
 
   handleYearChange(years) {
@@ -28,13 +40,18 @@ export default class App extends React.Component {
       }
     };
     this.setState({ interactiveQuery: interactiveQuery });
+    this.setState({years: yearFill});
   }
   
   render() {
     return (
       <div className="App">
-        <MapContainer interactiveQuery={this.state.interactiveQuery}/>
+        <MapContainer 
+        disasterSelections={this.state.disasterSelections}
+        interactiveQuery={this.state.interactiveQuery} 
+        years={this.state.years} />
         <YearRange handleYearChange={this.handleYearChange}/>
+        <DropdownContainer filterDisaster={this.filterDisaster} />
       </div>
     )
   }
