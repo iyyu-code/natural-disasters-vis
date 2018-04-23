@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMapboxGl, { GeoJSONLayer } from 'react-mapbox-gl';
 const { center, styles, containerStyle, zoom } = require('./mapStyle.json');
 const stateCodeGeoJSON = require('./stateCodeGeoJSON.json');
@@ -11,12 +12,16 @@ export default class DensityMap extends React.PureComponent {
 
     this.state = {
       disasterData: [],
+      highestCount: 0,
       shouldUseSampleData: false
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { disasterData: nextProps.disasterData, shouldUseSampleData: nextProps.shouldUseSampleData };
+    return {
+      disasterData: nextProps.disasterData,
+      shouldUseSampleData: nextProps.shouldUseSampleData
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,7 +36,7 @@ export default class DensityMap extends React.PureComponent {
       all[each.state] = (all[each.state] || 0) + 1;
       if (all[each.state] > highest) {
         highest = all[each.state];
-      } 
+      }
       return all;
     }, {});
     let features = [];
@@ -42,8 +47,8 @@ export default class DensityMap extends React.PureComponent {
         features.push(feature);
       }
     }
-    this.setState({highestCount : highest});
-    this.setState({disasterData : features});
+    this.setState({ highestCount: highest });
+    this.setState({ disasterData: features });
   }
 
   determineDensityStops(highestdisasterCount) {
@@ -85,3 +90,9 @@ export default class DensityMap extends React.PureComponent {
     );
   }
 }
+
+DensityMap.propTypes = {
+  disasterData: PropTypes.array,
+  highestCount: PropTypes.number,
+  shouldUseSampleData: PropTypes.bool
+};

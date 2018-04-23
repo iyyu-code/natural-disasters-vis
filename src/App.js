@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MapContainer from './MapContainer';
 import YearRange from './YearRange';
 import DropdownContainer from './DropdownContainer';
@@ -10,10 +11,10 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      interactiveQuery: null,
       disasterSelections: [''],
-      years: ["2018"]
-    }
+      interactiveQuery: null,
+      years: ['2018']
+    };
 
     this.filterDisaster = this.filterDisaster.bind(this);
     this.handleYearChange = this.handleYearChange.bind(this);
@@ -21,38 +22,47 @@ export default class App extends React.Component {
 
   filterDisaster(disasterSelections) {
     interactiveQuery.args.where.incidentType = {
-        "$in": disasterSelections
+      $in: disasterSelections
     };
     this.setState({ disasterSelections });
-      this.setState({ interactiveQuery: interactiveQuery });
+    this.setState({ interactiveQuery: interactiveQuery });
   }
 
   handleYearChange(years) {
     years = years.map(numStr => Number(numStr));
     const yearFill = [];
-    for (let i = 0; i <= years[1] - years[0]; i+=1) {
+    for (let i = 0; i <= years[1] - years[0]; i += 1) {
       const year = years[0] + i;
       yearFill.push(year.toString());
     }
     interactiveQuery.args.where = {
       fyDeclared: {
-        "$in": yearFill
+        $in: yearFill
       }
     };
     this.setState({ interactiveQuery: interactiveQuery });
-    this.setState({years: yearFill});
+    this.setState({ years: yearFill });
   }
-  
+
   render() {
     return (
       <div className="App">
-        <MapContainer 
-        disasterSelections={this.state.disasterSelections}
-        interactiveQuery={this.state.interactiveQuery} 
-        years={this.state.years} />
-        <YearRange handleYearChange={this.handleYearChange}/>
+        <MapContainer
+          disasterSelections={this.state.disasterSelections}
+          interactiveQuery={this.state.interactiveQuery}
+          years={this.state.years}
+        />
+        <YearRange handleYearChange={this.handleYearChange} />
         <DropdownContainer filterDisaster={this.filterDisaster} />
       </div>
-    )
+    );
   }
+}
+
+App.propTypes = {
+  disasterSelections: PropTypes.array,
+  handleYearChange: PropTypes.func,
+  filterDisaster: PropTypes.func,
+  interactiveQuery: PropTypes.object,
+  years: PropTypes.arrayOf(PropTypes.string)
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import disasterOptions from './disasterOptions';
@@ -35,7 +36,6 @@ export default class DropdownContainer extends React.Component {
       <div className="disaster-dropdown">
         <Select
           closeOnSelect={false}
-          // delimiter=', '
           joinValues={true}
           multi={true}
           onChange={this.handleSelectChange}
@@ -50,3 +50,11 @@ export default class DropdownContainer extends React.Component {
     )   
   }
 }
+
+DropdownContainer.propTypes = {
+  disasterOptions: PropTypes.arrayOf(PropTypes.object),
+  dropdownOptions: PropTypes.arrayOf(PropTypes.object),
+  handleSelectChange: PropTypes.func,
+  selectAll: PropTypes.arrayOf(PropTypes.object),
+  value: PropTypes.string
+};
