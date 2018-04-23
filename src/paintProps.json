@@ -50,7 +50,7 @@
     },
     "fill-opacity": 0.75
   },
-  "FourThousand": {
+  "FiveThousand": {
     "fill-color": {
       "property": "density",
       "stops": [
@@ -62,7 +62,7 @@
         [1500, "#0A8BE6"],
         [2000, "#0071CC"],
         [3000, "#0058B3"],
-        [4000, "#003E99"]
+        [5000, "#003E99"]
       ]
     },
     "fill-opacity": 0.75
