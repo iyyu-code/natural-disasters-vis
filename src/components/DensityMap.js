@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMapboxGl, { GeoJSONLayer } from 'react-mapbox-gl';
-const { center, styles, containerStyle, zoom } = require('./mapStyle.json');
-const stateCodeGeoJSON = require('./stateCodeGeoJSON.json');
-const paintProps = require('./paintProps.json');
+const { center, styles, containerStyle, zoom } = require('../mapStyle.json');
+const stateCodeGeoJSON = require('../stateCodeGeoJSON.json');
+const paintProps = require('../paintProps.json');
 const Map = ReactMapboxGl({ accessToken: process.env.REACT_APP_MAPBOX_TOKEN });
 
 export default class DensityMap extends React.PureComponent {
@@ -27,6 +27,7 @@ export default class DensityMap extends React.PureComponent {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.disasterData !== prevProps.disasterData) {
       this.determineDensity(this.props.disasterData);
+      this.props.handleDisasterCount(this.props.disasterData.length);
     }
   }
 

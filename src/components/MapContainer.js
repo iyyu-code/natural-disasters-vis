@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DensityMap from './DensityMap';
-import { initialConfig, interactiveConfig } from './dataConfig';
-import { sampleData } from './sampleData.js';
+import { initialConfig, interactiveConfig } from '../dataConfig';
+import { sampleData } from '../sampleData.js';
 const axios = require('axios');
 
 export default class MapContainer extends React.PureComponent {
@@ -18,13 +18,13 @@ export default class MapContainer extends React.PureComponent {
   }
 
   loadData = (config, initial = false) => {
-    const context = this;
     axios(config)
       .then(response => {
         if (!initial) {
-          context.setState({ disasterData: response.data });
+          this.setState({ disasterData: response.data });
+          this.props.handleDisasterCount(response.data.length);
         } else if (response.status !== 200 && response.data.count < 1) {
-          context.setState({
+          this.setState({
             disasterData: sampleData,
             shouldUseSampleData: true
           });
@@ -32,7 +32,7 @@ export default class MapContainer extends React.PureComponent {
       })
       .catch(err => {
         console.log(`ERROR ${err}`);
-        context.setState({
+        this.setState({
           disasterData: sampleData,
           shouldUseSampleData: true
         });
@@ -76,6 +76,7 @@ export default class MapContainer extends React.PureComponent {
       <div className="map-container">
         <DensityMap
           disasterData={this.state.disasterData}
+          handleDisasterCount={this.props.handleDisasterCount}
           shouldUseSampleData={this.state.shouldUseSampleData}
         />
       </div>
