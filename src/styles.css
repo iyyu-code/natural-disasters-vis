@@ -1,0 +1,50 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.map-container {
+  justify-content: center;
+  position: relative;
+}
+
+.range {
+  padding: 5px;
+  position: relative;
+  top: 28px;
+  width: 80%;
+}
+
+.info-group {
+  display: flex;
+  padding: 60px;
+  flex-grow: 1;
+  flex-basis:  auto;
+  width: 90%;
+  justify-content: center;
+}
+
+.disaster-dropdown {
+  float: right;
+  position: relative;
+  width: 40%;
+}
+
+.info-container {
+  width: 40%;
+  float: left;
+  margin: auto;
+  position: relative;
+}
+
+.stat-group {
+  display: inline-block;
+  position: relative;
+  justify-content: space-around;
+}
+
