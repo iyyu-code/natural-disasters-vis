@@ -14,9 +14,9 @@
 }
 
 .range {
-  padding: 5px;
+  /* padding: 10px; */
   position: relative;
-  top: 28px;
+  top: 20px;
   width: 80%;
 }
 
@@ -26,17 +26,17 @@
   flex-grow: 1;
   flex-basis:  auto;
   width: 90%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .disaster-dropdown {
   float: right;
   position: relative;
-  width: 40%;
+  width: 60%;
 }
 
 .info-container {
-  width: 40%;
+  width: 30%;
   float: left;
   margin: auto;
   position: relative;
@@ -45,6 +45,5 @@
 .stat-group {
   display: inline-block;
   position: relative;
-  justify-content: space-around;
 }
 

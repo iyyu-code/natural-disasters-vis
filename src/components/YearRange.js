@@ -24,6 +24,7 @@ const YearRange = props => {
         defaultValue={[2018, 2018]}
         marks={marks}
         tipFormatter={value => value}
+        tipProps={{placement:'bottom'}}
         onChange={debounce(props.handleYearChange, 200)}
 
       />
