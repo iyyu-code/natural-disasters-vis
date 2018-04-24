@@ -19,5 +19,8 @@
     "build": "react-scripts build && cp build/index.html build/404.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.3.2"
   }
 }
